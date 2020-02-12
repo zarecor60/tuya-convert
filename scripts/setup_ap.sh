@@ -29,6 +29,7 @@ setup () {
 
 	echo "Configuring AP interface..."
 	sudo ip link set $WLAN down
+	sudo ip addr flush dev $WLAN
 	sudo ip addr add $GATEWAY/24 dev $WLAN
 	sudo ip link set $WLAN up
 	sudo ip route add 10.42.42.0/24 dev $WLAN src $GATEWAY
